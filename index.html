@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' https://cdn.tencent.oreorigin.com http://localhost:8105; script-src * 'unsafe-inline' 'unsafe-eval';">
+    <title>x cdn</title>
+    <link rel="stylesheet" href="dist/bootstrap/dist/css/bootstrap.css">
+    <script src="dist/render.js"></script>
+    <style>
+        .w {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            background-size: contain;
+        }
+
+        .h {
+
+        }
+    </style>
+</head>
+<body>
+<table class="table table-info">
+    <tr>
+        <td>{{item.name}}</td>
+        <td hidden><img src="{{item.url}}"></td>
+        <td onmouseover="see_img(this)">{{item.url}}</td>
+        <td><button class="btn btn-dark" onclick="replace('{{item.url}}')">复制</button></td>
+    </tr>
+</table>
+<div id="box" class="w">
+
+</div>
+<script src="./renderer.js"></script>
+</body>
+</html>
